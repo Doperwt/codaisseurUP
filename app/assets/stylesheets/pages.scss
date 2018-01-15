@@ -1,3 +1,18 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.background_image {
+  position: relative;
+  opacity: 0.2;
+  width: 100% ;
+  height: auto ;
+}
+
+.tophome{
+  opacity: 1.0;
+  position: absolute;
+  top: 50px;
+}
+.right{
+  text-align: right;
+}

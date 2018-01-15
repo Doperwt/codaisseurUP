@@ -7,14 +7,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "CodaisseurUP", root_path, class: "navbar-brand" %>
+      <%= link_to "CodaisseurUp", root_path, class: "navbar-brand" %>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-
+          <li> <%= link_to "About", about_path %></li>
+          <li> <%= link_to "Contact", contact_path %></li>
         <% if !user_signed_in? %>
           <li><%= link_to "Log In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default btn-extended" %></li>
         <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
