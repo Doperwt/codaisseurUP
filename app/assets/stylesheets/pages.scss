@@ -7,7 +7,11 @@
   width: 100% ;
   height: auto ;
 }
-
+.foreground_image {
+  opacity: 1;
+  width: 100% ;
+  height: auto ;
+}
 .tophome{
   opacity: 1.0;
   position: absolute;
@@ -21,4 +25,7 @@
 }
 .btn-extended{
   color: white;
+}
+.head {
+  background-color: lightyellow;
 }
