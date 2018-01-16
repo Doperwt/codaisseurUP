@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
-    resource = 0
+    @events = Event.all
   end
+
+  private
 end
