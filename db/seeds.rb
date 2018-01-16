@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Event.destroy_all
-users=User.all
+User.destroy_all
+user1 = User.create!()
+
 
 Event.create!( [ {name:"Pleinfeest",location:"Plein",size:20,price:15.5,image_url:"https://i.ytimg.com/vi/TR6EpCaF1wg/maxresdefault.jpg",description:"feest op het plein",user:users.first},
   {name:"Straatfeest",location:"Straat",size:10,price:10.5,image_url:"http://www.statenkwartier.net/wp-content/uploads/2012/08/Straatfeest-Van-der-Heimstraat1.jpg",description:"feest op de straat",user:users.second},

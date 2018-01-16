@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+  <h1><%= @event.name %></h1><br>
+<%= image_tag @event.image_url, class: "foreground_image" %>
+<p> <%= @event.description%><br> Price is <%= @event.price%></p>
+<% if @event.includes_drinks && @event.includes_food %>
+  <p> Drinks and food are included</p>
+<% elsif @event.includes_drinks %>
+  <p> Drinks are included</p>
+<% elsif @event.includes_food %>
+  <p> Foods is included</p>
+<% else %>
+<p> Drinks and food are not included</p>
+<% end %>
+
+  </div>
+</div>

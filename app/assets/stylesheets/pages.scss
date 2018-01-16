@@ -2,15 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .background_image {
-  position: relative;
   opacity: 0.2;
   width: 100% ;
   height: auto ;
 }
 .foreground_image {
   opacity: 1;
-  width: 100% ;
+  width: auto ;
+  max-width: 100%;
   height: auto ;
+  max-height: 500px;
 }
 .tophome{
   opacity: 1.0;

@@ -5,4 +5,5 @@ class Event < ApplicationRecord
   validates :size, presence: true
   validates :location, presence: true
   validates :price, presence: true
+
 end
