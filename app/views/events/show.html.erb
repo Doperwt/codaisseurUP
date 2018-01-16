@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 text-center">
   <h1><%= @event.name %></h1><br>
+  <h4> The event will run from <%=@event.starts_at%> until <%=@event.ends_at%></h4>
 <%= image_tag @event.image_url, class: "foreground_image" %>
 <p> <%= @event.description%><br> Price is <%= @event.price%></p>
 <% if @event.includes_drinks && @event.includes_food %>
@@ -12,6 +13,9 @@
 <% else %>
 <p> Drinks and food are not included</p>
 <% end %>
+<% if @event.user_id == current_user.id%>
+<%= link_to "Edit event", edit_event_path, class:"btn btn-primary "%>
 
+<% end %>
   </div>
 </div>
