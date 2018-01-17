@@ -1,3 +1,5 @@
+<%= render 'validationerrors' %>
+
 <%= form_for(@event) do |f| %>
   <div class="form-group">
     <%= f.label :name %><br />
@@ -21,7 +23,7 @@
 
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_field :description, autocomplete: "off",placeholder: 'Where wil it be',class: "form-control" %>
+    <%= f.text_field :description, autocomplete: "off",placeholder: 'What is going to happen',class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :image_url %><br />

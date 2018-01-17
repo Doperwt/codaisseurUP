@@ -1,1 +1,10 @@
-<h1> Not blank</h1>
+<h1> Search results</h1>
+<div class="row col-md-12 text-center">
+<% @events.each do |event|%>
+<div class="col-md-4 ">
+<%= image_tag event.image_url, class: "foreground_image" %>
+  <%= link_to event.name, event_path(event.id) %>
+ <p><%= event.description %></p>
+</div>
+<%end%>
+</div>

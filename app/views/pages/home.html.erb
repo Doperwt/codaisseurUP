@@ -6,7 +6,7 @@
   <div class = "tophome">
 
     <br>
-    <p>Description of current events goes here
+    <p class="<double_size></double_size>">Description of current events goes here
       Description of current events goes here
       Description of current events goes here
       Description of current events goes here
@@ -25,7 +25,7 @@
   <div class= "col-md-4 ">
       <%= image_tag event.image_url, class: "foreground_image" %>
       <h3><%= event.name%></h3>
-    <p> <%= event.description%> <br>price is <%= event.price%></p>
+    <p> <%= event.description%> <br>price is <%= event.price%> Euro</p>
     <%= link_to "More", event_path(event.id) ,class: "btn btn-default"%>
   </div>
 <% end%>
@@ -52,8 +52,8 @@
     <p> There are a lot of niche events, something for everyone</p>
 
     <%= form_tag("/search", method: "get") do %>
-      <%= label_tag(:q, "Search for:") %>
-      <%= text_field_tag(:q) %>
+      <%= label_tag(:search, "Search for:") %>
+      <%= text_field_tag :search, params[:search], placeholder: "enter event name"%>
       <%= submit_tag("Search",class:"btn btn-primary")  %>
     <% end %>
     </div>
