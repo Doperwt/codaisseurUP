@@ -10,8 +10,8 @@ class Event < ApplicationRecord
   validates :ends_at, presence: true
   BARGAIN_PRICE = 30
 
-  def validate_user?
-    self.user_id == user.id
+  def validate_user?(user)
+    user_id == user.id
   end
 
   def self.order_by_price
@@ -20,5 +20,9 @@ class Event < ApplicationRecord
 
   def bargain?
     price < BARGAIN_PRICE
+  end
+  private
+  def check_user?
+    current_user.id == true
   end
 end

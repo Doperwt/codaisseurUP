@@ -66,7 +66,8 @@ RSpec.describe Event, type: :model do
     let!(:user1) {create :user}
     let!(:event1) { create :event, user: user1 }
     it "user is equal to event owner" do
-      expect(event1.validate_user?).to eq(true)
+      result = event1.validate_user?(user1)
+      expect(result).to eq(true)
     end
   end
 

@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update]
+  before_action :all_categories, only: [:show, :edit, :update]
    before_action :authenticate_user!, except: [:show]
 
    def index
      @events = current_user.events
    end
 
-   def show; end
+   def show
+     @valid_user = @event.validate_user?(current_user)
+   end
 
    def new
      @event = current_user.events.build
@@ -37,13 +40,15 @@ class EventsController < ApplicationController
    def set_event
      @event = Event.find(params[:id])
    end
-
+   def all_categories
+     @categories = Category.all
+   end
    def event_params
      params
        .require(:event)
        .permit(
          :name, :size, :description, :location, :image_url, :includes_drinks,
-         :includes_food, :starts_at, :ends_at, :active, :price
+         :includes_food, :starts_at, :ends_at, :active, :price, :categories
        )
    end
 

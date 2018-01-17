@@ -33,6 +33,11 @@
     <%= f.label :includes_food %> <%= f.check_box :includes_food %>
     <%= f.label :includes_drinks %> <%= f.check_box :includes_drinks %>
   </div>
+  <% @categories.each do |category|%>
+  <div class="field">
+    <%= f.label category.name %> <%= f.check_box :category_ids %>
+  </div>
+  <% end%>
   <div class="field">
     <%= f.label :starts_at %><br />
     <%= f.date_field :starts_at, class: "form-control" %>
