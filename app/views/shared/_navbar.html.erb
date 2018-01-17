@@ -18,16 +18,19 @@
           <li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default btn-extended" %></li>
         <% else %>
           <li class="dropdown">
+            <%if current_user.profile%>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.profile.full_name  %> <span class="caret"></span></a>
+            <%else%>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
-
+          <%end%>
             <ul class="dropdown-menu">
               <li><%= link_to "Edit Password", edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
-              <%if Profile.exists?(current_user.id) %>
-              <li><%= link_to "Edit Profile", edit_profile_path %></li>
+              <%if current_user.profile %>
+              <li><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></li>
               <li role="separator" class="divider"></li>
               <%else%>
-              <li><%= link_to "Create profile", new_profile_path %></li>
+              <li><%= link_to "Create profile", new_profile_path(current_user.id) %></li>
               <li role="separator" class="divider"></li>
               <% end%>
               <li><%= link_to "Organized Events", events_path %></li>

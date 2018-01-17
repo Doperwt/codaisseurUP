@@ -21,7 +21,9 @@
       <%else%>
       <%= link_to "Join event", event_path, class:"btn btn-primary"%>
    <%end
-end%>
+ else %>
+ <%= link_to "Log in", new_user_session_path, class:"btn btn-default"%>
+<%end%>
 
   </div>
 </div>

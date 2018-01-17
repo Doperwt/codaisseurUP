@@ -1,33 +1,33 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update]
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
-def new
-  @profile = Profile.new
-end
-
-def create
-  @profile = current_user.build_profile(profile_params)
-
-  if @profile.save
-    redirect_to edit_profile_path(@profile), notice: "Profile successfully created"
-  else
-    render :new
+  def new
+    @profile = Profile.new
   end
-end
 
-def edit
-end
+  def create
+    @profile = current_user.build_profile(profile_params)
 
-def update
-  if @profile.update(profile_params)
-    redirect_to edit_profile_path(@profile), notice: "Profile successfully updated"
-  else
-    render :edit
+    if @profile.save
+      redirect_to edit_profile_path(@profile), notice: "Profile successfully created"
+    else
+      render :new
+    end
   end
-end
 
-private
+  def edit
+  end
+
+  def update
+    if @profile.update(profile_params)
+      redirect_to edit_profile_path(@profile), notice: "Profile successfully updated"
+    else
+      render :edit
+    end
+  end
+
+  private
   def set_profile
     @profile = current_user.profile
   end

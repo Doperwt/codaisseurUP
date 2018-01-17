@@ -10,11 +10,11 @@ class PagesController < ApplicationController
   end
   def has_profile?
     Profile.find(user.id).count < 0
-  end 
+  end
   private
   def random_event
-    first = Event.last.id
+    first = Event.first.id
     last = Event.last.id
-    @random = Event.find(rand(first..last))
+    @random = Event.find( rand(first..last))
   end
 end

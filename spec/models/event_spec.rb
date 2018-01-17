@@ -69,4 +69,16 @@ RSpec.describe Event, type: :model do
       expect(event1.validate_user?).to eq(true)
     end
   end
+
+  describe "order_by_price for events" do
+    let!(:cheap_event) {create :event, price: 29}
+    let!(:expensive_event) {create :event, price: 300}
+    let!(:medium_event) {create :event, price: 30}
+
+    it "check if order is ascending" do
+      expected = [cheap_event, medium_event, expensive_event]
+      expect(Event.order_by_price).to eq(expected)
+    end
+
+  end
 end

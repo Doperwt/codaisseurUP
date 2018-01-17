@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
   describe "validations" do
-    it "is invalid without first_name" do
-      event = Event.new(first_name: "")
-      event.valid?
-      expect(event.errors).to have_key(:first_name)
-    end
+    it { is_expected.to validate_presence_of(:first_name) }
+    it { is_expected.to validate_presence_of(:last_name) }
+    it { is_expected.to validate_presence_of(:bio) }
   end
 end
