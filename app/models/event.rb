@@ -8,4 +8,10 @@ class Event < ApplicationRecord
   validates :price, presence: true
   validates :starts_at, presence: true
   validates :ends_at, presence: true
+  BARGAIN_PRICE = 30
+
+
+  def bargain?
+    price < BARGAIN_PRICE
+  end
 end

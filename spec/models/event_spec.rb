@@ -48,4 +48,25 @@ RSpec.describe Event, type: :model do
       expect(event.errors).to have_key(:ends_at)
     end
   end
+
+  describe "bargain?" do
+    let!(:cheap_event) {create :event, price: 29}
+    let!(:expensive_event) {create :event, price: 300}
+    let!(:medium_event) {create :event, price: 30}
+    it "event is less then 30" do
+      expect(cheap_event.bargain?).to eq true
+    end
+    it "event is more then or equal to 30" do
+      expect(expensive_event.bargain?).to eq false
+      expect(medium_event.bargain?).to eq false
+    end
+  end
+
+  describe "validates user to event owner user" do
+    let!(:user1) {create :user}
+    let!(:event1) { create :event, user: user1 }
+    it "user is equal to event owner" do
+      expect(event1.validate_user?).to eq(true)
+    end
+  end
 end

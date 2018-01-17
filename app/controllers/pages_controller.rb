@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def index
     @events = Event.where('name ILIKE ?',"%#{params[:search].strip}%")
   end
+  def has_profile?
+    Profile.find(user.id).count < 0
+  end 
   private
   def random_event
     first = Event.last.id

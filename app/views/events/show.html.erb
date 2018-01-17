@@ -15,7 +15,7 @@
     <% end %>
 
     <% if !current_user.blank?
-      if @event.user_id == current_user.id %>
+      if @event.validate_user? %>
        <%=link_to "Edit event", edit_event_path, class:"btn btn-primary" %><br>
        <%= link_to "Delete", event_path(@event.id), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger"%>
       <%else%>
