@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :destroy
   has_one :profile, dependent: :destroy
+  def has_profile?
+    Profile.find(user.id).count < 0
+  end
 end

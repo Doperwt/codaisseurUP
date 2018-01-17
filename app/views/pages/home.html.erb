@@ -7,7 +7,7 @@
 
     <br>
     <p class="double_size">
-      <%= image_tag @random.image_url, class: "foreground_image" %>
+      <%= image_tag @random.image_url, class: "foreground_image stretch_image" %>
       <h3><%= @random.name%></h3>
     <p> <%= @random.description%> <br>price is <%= @random.price%> Euro</p>
     <%= link_to "More", event_path(@random.id) ,class: "btn btn-default"%>

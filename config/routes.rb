@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
   resources :events,   except: [:destroy]
+  resources :categories
+  resources :profiles
   get "about" => "pages#about"
   get "contact" => "pages#contact"
   get "user" => "users#show"

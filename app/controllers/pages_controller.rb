@@ -3,7 +3,6 @@ class PagesController < ApplicationController
     @lastthreevents = Event.last(3)
     # @events = Event.all
     random_event
-
   end
 
   def index

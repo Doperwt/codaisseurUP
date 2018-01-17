@@ -8,7 +8,4 @@ class Event < ApplicationRecord
   validates :price, presence: true
   validates :starts_at, presence: true
   validates :ends_at, presence: true
-  def find
-    @event = Event.where(q)
-  end
 end
