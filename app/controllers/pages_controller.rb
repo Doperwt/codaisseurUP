@@ -2,16 +2,17 @@ class PagesController < ApplicationController
   def home
     @lastthreevents = Event.last(3)
     # @events = Event.all
+    random_event
 
-    if params[:search]
-      @events = Event.search(params[:search]).order("created_at DESC")
-    else
-      @events = Event.all.order("created_at DESC")
-    end
   end
 
-  def show
+  def index
     @events = Event.where('name ILIKE ?',"%#{params[:search].strip}%")
   end
   private
+  def random_event
+    first = Event.last.id
+    last = Event.last.id
+    @random = Event.find(rand(first..last))
+  end
 end

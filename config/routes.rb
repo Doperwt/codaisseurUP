@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   get "about" => "pages#about"
   get "contact" => "pages#contact"
   get "user" => "users#show"
-  get "search" => "pages#show"
+  get "search" => "pages#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
