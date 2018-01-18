@@ -28,13 +28,13 @@
     <%= f.label :image_url %><br />
     <%= f.text_field :image_url, autocomplete: "off",placeholder: 'link a relevant image',class: "form-control" %>
   </div>
-  <p> Amnities</p>
+  <h4> Amnities</h4>
 
   <div class="field">
     <%= f.label :includes_food %> <%= f.check_box :includes_food %>
     <%= f.label :includes_drinks %> <%= f.check_box :includes_drinks %>
   </div>
-  <p>Categories</p>
+  <h4>Categories</h4>
 
     <div class="field">
   <% @categories.each do |category|%>

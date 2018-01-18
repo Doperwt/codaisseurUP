@@ -8,7 +8,9 @@ class EventsController < ApplicationController
    end
 
    def show
-     @valid_user = @event.validate_user?(current_user)
+     if current_user
+       @valid_user = @event.validate_user?(current_user)
+    end
    end
 
    def new
