@@ -28,11 +28,13 @@
       <%= link_to "Log in", new_user_session_path, class:"btn btn-primary"%>
       <%= link_to "No account? Sign up now!", new_user_registration_path, class:"btn btn-danger btn-extended"%>
     <%end%>
-    <h4>Photos</h4>
-    <div class="rows">
-      <% @event.photos.each do |photo| %>
-        <%= image_tag photo.image, class:"photos"%>
-      <% end %>
-    </div>
+
+
+  </div>
+  <h4>Photos</h4>
+  <div class="rows col-md-12">
+    <% @event.photos.each do |photo| %>
+      <div class="col-md-4"><%= image_tag photo.image,  class:"photos"%></div>
+    <% end %>
   </div>
 </div>

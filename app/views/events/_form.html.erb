@@ -55,7 +55,14 @@
     <%= f.label :ends_at %><br />
     <%= f.date_field :ends_at, class: "form-control" %>
   </div>
+  <label>Photos</label>
 
+  <div class="form-group">
+    <span class="btn btn-default">
+      Upload Photos
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </span>
+  </div>
 
   <br />
   <div class="actions">
