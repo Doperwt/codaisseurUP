@@ -15,7 +15,6 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
-    @categories = Category.all
   end
 
   def create
@@ -31,7 +30,8 @@ class EventsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @event.update(event_params)
@@ -60,7 +60,7 @@ class EventsController < ApplicationController
     .require(:event)
     .permit(
       :name, :size, :description, :location, :image_url, :includes_drinks,
-      :includes_food, :starts_at, :ends_at, :active, :price, :category_ids[]
+      :includes_food, :starts_at, :ends_at, :active, :price, category_ids: []
     )
   end
   def image_params

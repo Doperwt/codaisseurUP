@@ -28,6 +28,10 @@
     <%= f.label :image_url %><br />
     <%= f.text_field :image_url, autocomplete: "off",placeholder: 'link a relevant image',class: "form-control" %>
   </div>
+  <h4> Is the Event going on as planned</h4>
+  <div class="field">
+    <%= f.label :active %> <%= f.check_box :active %>
+  </div>
   <h4> Amnities</h4>
 
   <div class="field">
@@ -42,11 +46,6 @@
       <%= b.check_box(class: "check_box") %> <%= b.object.name %>
     </div>
   <% end %>
-    <!-- <div class="field">
-  <% Category.all.each do |category|%>
-    <%= f.label category.name %> <%= f.check_box :category_ids %>
-  <% end%>
-</div> -->
 
   <div class="field">
     <%= f.label :starts_at %><br />
@@ -56,6 +55,8 @@
     <%= f.label :ends_at %><br />
     <%= f.date_field :ends_at, class: "form-control" %>
   </div>
+
+
   <br />
   <div class="actions">
     <%= f.submit (@event.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>

@@ -13,21 +13,26 @@
     <% else %>
       <p> Drinks and food are not included</p>
     <% end %>
-
+    <% @event.categories.each do |category| %>
+      <%= link_to category.name, category_path(category.id), class:"btn btn-default" %>
+    <% end %>
+    <br>
     <% if current_user
       if @valid_user %>
-       <%=link_to "Edit event", edit_event_path, class:"btn btn-primary" %><br>
-       <%= link_to "Delete", event_path(@event.id), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger"%>
+        <%=link_to "Edit event", edit_event_path, class:"btn btn-primary" %><br>
+        <%= link_to "Delete", event_path(@event.id), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger"%>
       <%else%>
-      <%= link_to "Join event", event_path, class:"btn btn-primary"%>
-   <%end
- else %>
- <%= link_to "Log in", new_user_session_path, class:"btn btn-primary"%>
-  <%= link_to "No account? Sign up now!", new_user_registration_path, class:"btn btn-danger btn-extended"%>
-<%end%>
-<h4>Photos</h4>
-<% @event.photos.each do |photo| %>
-  <%= image_tag photo.image %>
-<% end %>
+        <%= link_to "Join event", event_path, class:"btn btn-primary"%>
+      <%end
+    else %>
+      <%= link_to "Log in", new_user_session_path, class:"btn btn-primary"%>
+      <%= link_to "No account? Sign up now!", new_user_registration_path, class:"btn btn-danger btn-extended"%>
+    <%end%>
+    <h4>Photos</h4>
+    <div class="rows">
+      <% @event.photos.each do |photo| %>
+        <%= image_tag photo.image, class:"photos"%>
+      <% end %>
+    </div>
   </div>
 </div>
