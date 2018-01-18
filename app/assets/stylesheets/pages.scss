@@ -3,8 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .background_image {
   opacity: 0.2;
-  width: 120% ;
-  height: auto ;
+  width: auto ;
+  height: 600px ;
+  // position: absolute;
+  // left: 0px;
 }
 .foreground_image {
   opacity: 1;
