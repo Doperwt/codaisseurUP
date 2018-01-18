@@ -1,6 +1,6 @@
 <%= render 'validationerrors' %>
 
-<%= form_for(@event) do |f| %>
+<%= form_for @event, html: { multipart: true } do |f| %>
   <div class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name, class: "form-control", autofocus: true,placeholder: 'Name your event', autocomplete: "off" %>
@@ -36,11 +36,17 @@
   </div>
   <h4>Categories</h4>
 
-    <div class="field">
-  <% @categories.each do |category|%>
+
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+    <div class="form-group">
+      <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+    </div>
+  <% end %>
+    <!-- <div class="field">
+  <% Category.all.each do |category|%>
     <%= f.label category.name %> <%= f.check_box :category_ids %>
   <% end%>
-</div>
+</div> -->
 
   <div class="field">
     <%= f.label :starts_at %><br />
