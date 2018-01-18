@@ -68,4 +68,8 @@
   <div class="actions">
     <%= f.submit (@event.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
   </div>
+  <div id="photos">
+  <%= render 'photos/list' %>
+</div>
+
 <% end %>
