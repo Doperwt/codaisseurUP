@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8 col-md-offset-2 text-center">
+  <div class="col-md-8 col-md-offset-2 text-center panel panel-default">
     <h1><%= @event.name %></h1><br>
     <h4> The event will run from <%=@event.starts_at.strftime("%Y - %B - %d") %> until <%=@event.ends_at.strftime("%Y - %B - %d") %> hosted by <%=  @owner.profile ? @owner.profile.full_name : @owner.email %></h4>
     <%= image_tag @event.image_url, class: "foreground_image" %>
@@ -31,8 +31,9 @@
 
 
   </div>
+    <div class="rows col-md-12 panel panel-default">
   <h4>Photos</h4>
-  <div class="rows col-md-12">
+
     <% @event.photos.each do |photo| %>
     <div class="panel panel-default col-md-4">
       <div class="panel-heading">

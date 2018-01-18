@@ -1,3 +1,5 @@
 <h1> <%= @category.name %></h1>
 <p> <%= @category.description%></p>
 <div class="btn btn-default"> <%= link_to "Edit", edit_category_path(@category.id) %></div>
+<br><br><br><br>
+<div class="btn btn-danger"><%= link_to "All categories", categories_path%></div>
