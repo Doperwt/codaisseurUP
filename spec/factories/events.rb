@@ -9,6 +9,7 @@ FactoryBot.define do
     active            {Faker::Boolean.boolean}
     price             { Faker::Commerce.price }
     user              { build(:user) }
+    image_url         {"http://rever.nl/wp-content/uploads/2014/08/Bruine-kroeg-uitgelicht.jpg"}
     starts_at         Faker::Time.between(2.days.from_now, Date.today, :all)
     ends_at           Faker::Time.between(3.days.from_now, Date.today, :all)
     trait :active do

@@ -8,9 +8,9 @@
 User.destroy_all
 Category.destroy_all
 
-user1 = User.create!(email:"test1@test.com",name:"test1",password:"test01")
-user2 = User.create!(email:"test2@test.com",name:"test2",password:"test02")
-user3 = User.create!(email:"test3@test.com",name:"test3",password:"test03")
+user1 = User.create!(email:"test1@test.com",password:"test01")
+user2 = User.create!(email:"test2@test.com",password:"test02")
+user3 = User.create!(email:"test3@test.com",password:"test03")
 
 users = User.all
 category1 = Category.create!(name:"outdoor",description:"No roof, dummy")
