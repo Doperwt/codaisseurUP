@@ -1,0 +1,15 @@
+<%= render 'validationerrors' %>
+
+<%= form_for @category do |f| %>
+<div class="form-group">
+  <%= f.label :name %><br />
+  <%= f.text_field :name, class: "form-control", autofocus: true,placeholder: 'Name your category', autocomplete: "off" %>
+</div>
+<div class="field">
+  <%= f.label :description %><br />
+  <%= f.text_field :description, autocomplete: "off",placeholder: 'what is it for',class: "form-control" %>
+</div>
+<div class="actions">
+  <%= f.submit (@category.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
+</div>
+<%end%>
