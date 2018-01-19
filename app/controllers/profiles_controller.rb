@@ -15,7 +15,9 @@ class ProfilesController < ApplicationController
       render :new
     end
   end
-
+  def show
+    @bookings = current_user.bookings
+  end
   def edit
   end
 

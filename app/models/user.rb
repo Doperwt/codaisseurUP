@@ -7,5 +7,11 @@ class User < ApplicationRecord
   has_many :booked_events, through: :bookings, source: :event
   has_many :events, dependent: :destroy
   has_one :profile, dependent: :destroy
-
+  def full_name
+    if self.profile
+     "#{self.profile.first_name} #{self.profile.last_name}"
+   else
+     self.email
+   end
+  end
 end

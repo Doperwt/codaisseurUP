@@ -1,11 +1,14 @@
 <h1>Booking for <%= @event.name%></h1>
+<% @booking.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
 
-<%= form_for @booking do |b|%>
+<%= form_for @booking , url: event_bookings_path do |b|%>
   <div class="form-group">
     <%= b.label :group_size%><br/>
     <%= b.number_field :group_size, class: "form-control", autofocus: true,placeholder: 'fill in size of your group', autocomplete: "off"   %>
   </div>
   <div class="actions">
-    <%= b.submit  "Createbooking", class: "btn btn-primary" %>
+    <%= b.submit  "Create",  class: "btn btn-primary" %>
   </div>
 <%end%>

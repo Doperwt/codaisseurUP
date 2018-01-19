@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   devise_for :users
-  resources :events,   except: [:destroy]
+  resources :events,   except: [:destroy] do
+      resources :bookings, only: [:new, :create,:index]
+    end
   resources :categories
   resources :profiles
   resources :photos, only: [:destroy]
@@ -10,7 +12,6 @@ Rails.application.routes.draw do
   get "contact" => "pages#contact"
   # get "user" => "users#show"
   get "search" => "pages#index"
-  get "bookevent/:id" => "events#bookevent", as: :bookevent
-  post "bookevent/:id" => "events#createbooking", as: :bookings
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
