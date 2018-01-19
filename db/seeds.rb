@@ -46,7 +46,7 @@ photo8 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/im
 photo9 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007291/20161005-ngwqx_erq7sf.png", event: event3)
 
 Booking.create!(user: user3, event: event1, group_size: 3, price:15.5)
-Booking.create!(user: user1, event: event2, group_size: 5, price:10.5)
-Booking.create!(user: user2, event: event3, group_size: 4, price:5.5)
+Booking.create!(user: user1, event: event2, group_size: 2, price:10.5)
+Booking.create!(user: user2, event: event3, group_size: 1, price:5.5)
 Booking.create!(user: user1, event: event3, group_size: 3, price:5.5)
-Booking.create!(user: user3, event: event1, group_size: 4, price:15.5)
+Booking.create!(user: user3, event: event1, group_size: 2, price:15.5)
