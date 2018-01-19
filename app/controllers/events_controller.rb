@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update]
+  before_action :set_event, only: [:show, :edit, :update, :bookevent]
   before_action :all_categories, only: [ :edit, :update]
   before_action :authenticate_user!, except: [:show]
 
@@ -44,6 +44,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def bookevent
+    @booking = current_user.bookings.build(event: @event)
+  end
+  def createbooking
+    @booking = current_user.bookings.build(booking_params)
+    if @booking.save
+      redirect_to root, notice: "Booking created"
+    else
+      render :bookevent
+    end
+  end
   private
 
   def set_event
@@ -65,6 +76,9 @@ class EventsController < ApplicationController
   end
   def image_params
     params[:images].present? ? params.require(:images) : []
+  end
+  def booking_params
+    params.require(:booking).permit( :group_size)
   end
 
 

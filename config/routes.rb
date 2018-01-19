@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get "contact" => "pages#contact"
   # get "user" => "users#show"
   get "search" => "pages#index"
+  get "bookevent/:id" => "events#bookevent", as: :bookevent
+  post "bookevent/:id" => "events#createbooking", as: :bookings
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

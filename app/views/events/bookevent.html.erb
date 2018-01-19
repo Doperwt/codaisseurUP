@@ -1,0 +1,11 @@
+<h1>Booking for <%= @event.name%></h1>
+
+<%= form_for @booking do |b|%>
+  <div class="form-group">
+    <%= b.label :group_size%><br/>
+    <%= b.number_field :group_size, class: "form-control", autofocus: true,placeholder: 'fill in size of your group', autocomplete: "off"   %>
+  </div>
+  <div class="actions">
+    <%= b.submit  "Createbooking", class: "btn btn-primary" %>
+  </div>
+<%end%>
