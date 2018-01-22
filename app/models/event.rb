@@ -19,9 +19,29 @@ class Event < ApplicationRecord
   end
 
   def self.order_by_price
-    Event.order(price: :asc )
+    order(price: :asc )
   end
+  def self.outdoor_booked
 
+
+  end
+  def self.outdoor_count
+     Event.joins(:categories).where(:categories => { :name=>"outdoor" }).sum(:size)
+  end
+  def self.need_sort(search)
+    case search
+    when "Name Ascending"
+      order(name: :asc)
+    when "Name Descending"
+      order(name: :desc)
+    when "Size Ascending"
+      order(size: :asc )
+    when "Size Descending"
+      order(size: :desc )
+    else
+      order(name: :asc)
+    end
+  end
   def bargain?
     price < BARGAIN_PRICE
   end

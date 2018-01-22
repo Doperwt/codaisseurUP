@@ -3,17 +3,22 @@
 
   <img src = "http://res.muenchen-p.de/.imaging/stk/responsive/galleryPreview980/dms/va-2017/tollwood-2017/teaser/tollwood-2017-hp-01/document/tollwood-2017-hp-01.jpg" class= "background_image"/>
 
-  <div class = "tophome ">
-
+  <div class = "tophome rows ">
+<div class=" col-md-8">
     <br>
-    <p class="double_size text-center">
+    <p class="double_size text-center ">
       <%= image_tag @random.image_url, class: "foreground_image stretch_image" %>
       <h3><%= @random.name%></h3>
     <p> <%= @random.description%> <br>price is <%= @random.price%> Euro</p>
     <%= link_to "More", event_path(@random.id) ,class: "btn btn-default"%>
     </div>
-
+<br><br><br>
+<div class=" col-md-4 panel">
+  <p>Total bookings made: <%= @booking_count  %></p>
+  <p>Outdoor events space remaining: <%= @outdoor_remaining%></p>
 </div>
+</div>
+
 <br>
 <div class= "row">
   <div class= "col-md-12 text-center "><h2>Current Events</h2>
@@ -27,18 +32,6 @@
     <%= link_to "More", event_path(event.id) ,class: "btn btn-default"%>
   </div>
 <% end%>
-  <!-- <div class= "col-md-4">
-    <img src = "http://res.muenchen-p.de/.imaging/stk/responsive/galleryPreview980/dms/va-2017/tollwood-2017/teaser/tollwood-2017-hp-01/document/tollwood-2017-hp-01.jpg" class= "foreground_image"/>
-    <h3>event title2</h3>
-    <p> test2</p>
-    <%= link_to "More", "show" ,class: "btn btn-default"%>
-  </div>
-  <div class= "col-md-4">
-    <img src = "http://res.muenchen-p.de/.imaging/stk/responsive/galleryPreview980/dms/va-2017/tollwood-2017/teaser/tollwood-2017-hp-01/document/tollwood-2017-hp-01.jpg" class= "foreground_image"/>
-    <h3>event title3</h3>
-    <p> test3</p>
-    <%= link_to "More", "show" ,class: "btn btn-default"%>
-  </div> -->
 </div>
 <br><br>
 
