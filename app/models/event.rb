@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: :true
   has_and_belongs_to_many :categories
   has_many :photos, dependent: :destroy
   has_many :bookings, dependent: :destroy
@@ -10,8 +10,8 @@ class Event < ApplicationRecord
   validates :size, presence: true
   validates :location, presence: true
   validates :price, presence: true
-  validates :starts_at, presence: true
-  validates :ends_at, presence: true
+  # validates :starts_at, presence: true
+  # validates :ends_at, presence: true
   BARGAIN_PRICE = 30
 
   def validate_user?(user)

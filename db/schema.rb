@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180119101821) do
     t.string "name"
     t.integer "size"
     t.text "description"
-    t.string "image_url"
+    t.string "image_url", default: "https://images-na.ssl-images-amazon.com/images/I/41m4vuGbstL._SY300_.jpg"
     t.bigint "user_id"
     t.string "location"
     t.datetime "created_at", null: false
